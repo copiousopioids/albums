@@ -1,4 +1,5 @@
 # Albums
+---------
 
 ## A basic, lightweight Album Archive
   - Upload, view, and play your albums of music
