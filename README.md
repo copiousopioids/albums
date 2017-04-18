@@ -12,3 +12,12 @@
 ## Optional:
   - Users
   - More
+
+## Starting Up (Run these Commands):
+  - <code>npm install</code>
+
+  - <code>npm install express</code>
+
+  - <code>npm install jquery</code>
+
+  - <code>npm install --save express-fileupload</code>
