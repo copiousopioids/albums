@@ -18,14 +18,17 @@
     "task",
     "board"
   ],
-  "author": "Nathan H. Bean",
+  "author": "Zach Marcolesco",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/plexabyte/albums/issues"
   },
   "homepage": "https://github.com/plexabyte/albums#readme",
   "dependencies": {
-    "sqlite3": "3.1.8"
+    "express": "4.2.x",
+    "express-fileupload": "^0.1.2",
+    "sqlite3": "3.1.8",
+    "jquery": ">=1.5"
   },
   "devDependencies": {
     "browserify": "^14.1.0"
