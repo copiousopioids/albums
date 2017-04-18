@@ -1,0 +1,33 @@
+{
+  "name": "albums",
+  "version": "0.0.1",
+  "description": "A web app for storing music albums",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate": "node scripts/migrate.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plexabyte/albums.git"
+  },
+  "keywords": [
+    "SCRUM",
+    "software",
+    "development",
+    "task",
+    "board"
+  ],
+  "author": "Nathan H. Bean",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/plexabyte/albums/issues"
+  },
+  "homepage": "https://github.com/plexabyte/albums#readme",
+  "dependencies": {
+    "sqlite3": "3.1.8"
+  },
+  "devDependencies": {
+    "browserify": "^14.1.0"
+  }
+}
