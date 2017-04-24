@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <title>Album Organizer</title>
+</head>
+<body>
+  <div class="row">
+    <div class="col-sm-offset-5 col-sm-2 text-center">
+      <button id="addItem" type="button" class="btn">Add Album</button>
+      <form id="uploadForm" ref='uploadForm'>
+        <div id="editForm" style="visibility: hidden">
+        <div class="form-group row">
+          <label for="text-input" class="col-2 col-form-label">Album Name</label>
+          <div class="col-10">
+            <input name="name" class="form-control" type="text">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="text-input" class="col-2 col-form-label">Artist</label>
+          <div class="col-10">
+            <input name="artist" class="form-control" type="text">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="text-input" class="col-2 col-form-label">Genre</label>
+          <div class="col-10">
+            <input name="genre" class="form-control" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputFile">Album Art</label>
+          <input name="image" type="file" class="form-control-file" id="filename"  aria-describedby="fileHelp">
+          <small id="fileHelp" class="form-text text-muted">Upload the album image here.</small>
+        </div>
+        <div id="songUpload" class="form-group">
+          <label for="songUploadInput">Music Files</label>
+          <input id="songUploadInput" type='file' name="musicFile"/>
+
+        </div>
+        <button id="submitItem" type="button" class="btn btn-primary">Upload</button>
+      </div>
+    </form>
+    </div>
+  </div>
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="js/vendor/jquery.ui.widget.js"></script>
+  <script src="js/jquery.iframe-transport.js"></script>
+  <script src="js/jquery.fileupload.js"></script>
+  <script src="/app.js" type="text/javascript"></script>
+</body>
+</html>

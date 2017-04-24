@@ -1,0 +1,65 @@
+.example > div {
+  background-color: #888888;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+#message {
+  position: fixed;
+  top: 10px;
+  width: auto;
+  left: 50%;
+   z-index: 1060;
+  -webkit-border-radius: 15px;
+     -moz-border-radius: 15px;
+          border-radius: 15px;
+}
+
+
+#selectedItemPanel {
+    visibility: hidden;
+    position: absolute;
+    z-index: 100;
+    top: 0; left: 0;
+    width:100%;
+    height:100%;
+    background-color: rgba(100,100,100, 0.8);
+}
+
+.container .content {
+    display: none;
+    padding : 5px;
+}
+
+.media {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+
+}
+
+#largeImg {
+  max-width: 150px;
+}
+
+#addItem {
+  position: absolute;
+  left: 50%;
+}
+
+#inputForm {
+  display: inline-block;
+  text-align: center;
+}
+
+#editForm {
+  max-width: 450px;
+  background: #FAFAFA;
+  padding: 30px;
+  margin: 50px auto;
+  box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  border: 6px solid #305A72;
+  position: absolute;
+  left: 50%;
+}
