@@ -3,7 +3,7 @@ var express = require('express');
 var fileUpload = require('express-fileupload');
 var app = express();
 var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('scrumtastic.sqlite3', function(err) {
+var db = new sqlite3.Database('albums.sqlite3', function(err) {
   if(err) console.error(err);
 });
 
@@ -23,6 +23,8 @@ app.post('/upload', function(req, res) {
   if (!req.files)
     return res.status(400).send('No files were uploaded.');
 
+  console.log(req.body.filename);
+
   var album = req.body;
 
   // The name of the input field is used to retrieve the uploaded file 
@@ -31,7 +33,7 @@ app.post('/upload', function(req, res) {
   create(req, res, db);
 
   // Use the mv() method to place the file somewhere on your server 
-  albumArt.mv('/images/' + album.filename, function(err) {
+  albumArt.mv('/public/images/' + album.name, function(err) {
     if (err)
       return res.status(500).send(err);
  
