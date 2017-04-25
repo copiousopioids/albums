@@ -1,9 +1,15 @@
+var port = 3000;
 var express = require('express');
 var fileUpload = require('express-fileupload');
 var app = express();
-var port = 3000;
+var sqlite3 = require('sqlite3').verbose();
+var db = new sqlite3.Database('scrumtastic.sqlite3', function(err) {
+  if(err) console.error(err);
+});
 
-
+app.use(fileUpload({
+  safeFileNames: true
+}));
 
 app.get('/', function (req, res) {
   res.sendFile('index.html', { root: __dirname + "/public" } );
@@ -16,12 +22,16 @@ app.use(fileUpload());
 app.post('/upload', function(req, res) {
   if (!req.files)
     return res.status(400).send('No files were uploaded.');
- 
-  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file 
-  let sampleFile = req.files.sampleFile;
- 
+
+  var album = req.body;
+
+  // The name of the input field is used to retrieve the uploaded file 
+  let albumArt = req.files.albumArt;
+
+  create(req, res, db);
+
   // Use the mv() method to place the file somewhere on your server 
-  sampleFile.mv('/somewhere/on/your/server/filename.jpg', function(err) {
+  albumArt.mv('/images/' + album.filename, function(err) {
     if (err)
       return res.status(500).send(err);
  

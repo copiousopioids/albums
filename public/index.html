@@ -14,7 +14,7 @@
   <div class="row">
     <div class="col-sm-offset-5 col-sm-2 text-center">
       <button id="addItem" type="button" class="btn">Add Album</button>
-      <form id="uploadForm" ref='uploadForm'>
+      <form id="uploadForm" ref='uploadForm' method="post", action='http://localhost:3000/upload' enctype="multipart/form-data">
         <div id="editForm" style="visibility: hidden">
         <div class="form-group row">
           <label for="text-input" class="col-2 col-form-label">Album Name</label>
@@ -36,14 +36,14 @@
         </div>
         <div class="form-group">
           <label for="inputFile">Album Art</label>
-          <input name="image" type="file" class="form-control-file" id="filename"  aria-describedby="fileHelp">
+          <input name="albumArt" type="file" class="form-control-file" id="filename"  aria-describedby="fileHelp">
           <small id="fileHelp" class="form-text text-muted">Upload the album image here.</small>
         </div>
-        <div id="songUpload" class="form-group">
+        <!-- <div id="songUpload" class="form-group">
           <label for="songUploadInput">Music Files</label>
           <input id="songUploadInput" type='file' name="musicFile"/>
 
-        </div>
+        </div> -->
         <button id="submitItem" type="button" class="btn btn-primary">Upload</button>
       </div>
     </form>
