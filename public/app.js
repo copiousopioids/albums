@@ -114,10 +114,20 @@ $('#addItem').on('click', function() {
   }
 });
 
-$('#submitItem').on('click', function() {
-  
-  loadIndex();
-  $(this).closest('form').find("input[type=text], textarea").val("");
-});
+// $('#submitItem').on('click', function() {
+//     displayMessage('Item Uploaded.', 'success');
+// });
+
+// var form = new FormData($("#uploadForm")[0]);
+// $.ajax({
+//         url: your_url,
+//         method: "POST",
+//         dataType: 'json',
+//         data: form,
+//         processData: false,
+//         contentType: false,
+//         success: function(result){},
+//         error: function(er){}
+// });
 
 loadIndex();

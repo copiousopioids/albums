@@ -28,7 +28,8 @@ app.post('/', imageUpload.single('albumArt'), function(req, res){
 
     console.log(req.body); // form fields
     console.log(req.file); // form files
-    res.status(204).end();
+    res.statusCode = 204;
+    res.end();
 });
  
 // app.post('/', imageUpload.single('albumArt'), function(req, res) {
