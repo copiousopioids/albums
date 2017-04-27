@@ -18,7 +18,7 @@ app.use(express.static('public'));
 app.use(express.static('projects'));
 
 // accept one file where the name of the form field is named albumArt
-app.post('/', imageUpload.single('albumArt'), function(req, res){
+app.post('/upload', imageUpload.single('albumArt'), function(req, res){
     if(!req.file) {
       return res.status(400).send('No files were uploaded.');
     }
