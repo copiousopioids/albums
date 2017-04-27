@@ -56,7 +56,16 @@ app.get('/projects/', function (req, res) {
   resource.list(req, res, db);
 });
 
-app.get('')
+app.get('/images/:albumId', function(req, res) {
+  var albumId = req.params.albumId;
+  fs.readdir('../public/music/'+albumId, function(err, fileNames){
+    if(err) console.log(err);
+    else {
+      res.setHeader("Content-Type", "text/json");
+      res.end(fileNames);
+    }
+  });
+});
 
 
 app.listen(port, function () {
