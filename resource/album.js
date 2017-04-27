@@ -21,7 +21,7 @@ module.exports = {
   destroy: destroy
 }
 
-var multipart = require('../lib/multipart');
+//var multipart = require('../lib/multipart');
 var fs = require('fs');
 
 /** @function list
@@ -31,18 +31,15 @@ var fs = require('fs');
  * @param {sqlite3.Database} db - the database object
  */
 function list(req, res, db) {
-  auth(req, res, function(req, res) {
-    db.all("SELECT * FROM albums", [], function(err, albums){
-      if(err) {
-        console.error(err);
-        res.statusCode = 500;
-        res.end("Server Error")
-      }
-      res.setHeader("Content-Type", "text/json");
-      res.end(JSON.stringify(albums));
-    });
+  db.all("SELECT * FROM albums", [], function(err, albums){
+    if(err) {
+      console.error(err);
+      res.statusCode = 500;
+      res.end("Server Error")
+    }
+    res.setHeader("Content-Type", "text/json");
+    res.end(JSON.stringify(albums));
   });
-
 }
 
 /** @function create

@@ -3,5 +3,5 @@ CREATE TABLE cards (
   album_id INTEGER,
   name TEXT,
   artist TEXT,
-  FOREIGN KEY (project_id) REFERENCES projects(id)
+  FOREIGN KEY (album_id) REFERENCES albums(id)
 );

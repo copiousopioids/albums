@@ -4,6 +4,9 @@ var express = require('express');
 var multer = require('multer');
 var imageUpload = multer({ dest: './public/images/'});
 var app = express();
+var path = require('path');
+var resource = require('./resource/album.js');
+var migrations = require('./resource/migrate.js');
 
 
 var sqlite3 = require('sqlite3').verbose();
@@ -12,6 +15,7 @@ var db = new sqlite3.Database('albums.sqlite3', function(err) {
 });
 
 app.use(express.static('public'));
+app.use(express.static('projects'));
 
 // accept one file where the name of the form field is named albumArt
 app.post('/', imageUpload.single('albumArt'), function(req, res){
@@ -20,7 +24,7 @@ app.post('/', imageUpload.single('albumArt'), function(req, res){
     }
 
     albumArt = req.file;
-
+    resource.create(req, res, db);
     console.log(req.body); // form fields
     console.log(req.file); // form files
     res.status(204).end();
@@ -44,6 +48,10 @@ app.post('/', imageUpload.single('albumArt'), function(req, res){
 
 app.get('/', function (req, res) {
   res.sendFile('index.html', { root: __dirname + "/public" } );
+});
+
+app.get('/projects/', function (req, res) {
+  resource.list(req, res, db);
 });
 
 

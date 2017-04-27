@@ -1,2 +1,2 @@
-INSERT INTO projects (name, artist, genre))
-VALUES ("Testy", "ArTest", "Jazz");
+INSERT INTO albums (name, artist, genre, filename)
+VALUES ("Testy", "ArTest", "Jazz", "blood.png");
