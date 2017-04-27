@@ -72,8 +72,9 @@ function create(req, res, db) {
               res.end("Could not insert album into database");
               return;
             }
+            res.statusCode = 200;
+            res.end();
           });
-
 
   // multipart(req, res, function(req, res) {
   //   var album = req.body;
