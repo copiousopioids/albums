@@ -9,7 +9,7 @@ function loadIndex() {
     var OK = 200; // status 200 is a successful return.
     if (xhr.readyState === DONE) {
       if (xhr.status === OK) {
-        console.log(xhr.responseText); // 'This is the returned text.'
+        console.log('Response:' + xhr.responseText); // 'This is the returned text.'
         var projects = JSON.parse(xhr.responseText);
         $('#catalogItems').empty();
         $('#catalogItems').html(list(projects));
@@ -40,16 +40,48 @@ function showLarge(project) {
 function list(projects){
   var table = $('<table>').addClass('table');
   var head = $('<tr>').append('<th>Albums</th>').appendTo(table);
+  // var ul = $('<ul>');
   projects.forEach(function(project) {
-    var row = $('<tr>')
-    .append($('<td>').text(project.name))
-    .click(function(event) {
-      event.preventDefault();
-      console.log(project.name + " clicked");
-      showLarge(project);
-      //$('#largeImg').src = "/images/" + this.id;
-      unselectAll();
-    }).appendTo(table);
+    // var html =
+    // '<div class="thumbnail">' +
+    // //       '<a href="/w3images/lights.jpg">' +
+    // '<img src="/images/blood.png" alt="blood" style="width:200px">' +
+    // '<div class="caption">' +
+    // '<p>' + project.name + '</p>' +
+    // '</div>' +
+    // //       '</a>' +
+    // '</div>' +
+    //
+    // $('<li>').addClass("col-lg-2 col-md-2 col-sm-3 col-xs-4").append(html).appendTo(ul);
+
+
+
+
+    var html =
+    '<div class="col-sm-2">' +
+      '<div class="thumbnail">' +
+         '<a href="/w3images/lights.jpg">' +
+          '<img src="/images/blood.png" alt="blood" style="width:200px">' +
+          '<div class="caption">' +
+            '<p>' + project.name + '</p>' +
+          '</div>' +
+  //       '</a>' +
+      '</div>' +
+    '</div>';
+
+
+
+    // var row = $('<tr>')
+    // .append($('<td>').text(project.name))
+    // .click(function(event) {
+    //   event.preventDefault();
+    //   console.log(project.name + " clicked");
+    //   showLarge(project);
+    //   //$('#largeImg').src = "/images/" + this.id;
+    //   unselectAll();
+    // }).appendTo(table);
+
+    $('<tr>').append(html).appendTo(table);
   });
   return table;
 }
@@ -81,5 +113,21 @@ $('#addItem').on('click', function() {
     form.css('visibility', 'visible');
   }
 });
+
+// $('#submitItem').on('click', function() {
+//     displayMessage('Item Uploaded.', 'success');
+// });
+
+// var form = new FormData($("#uploadForm")[0]);
+// $.ajax({
+//         url: your_url,
+//         method: "POST",
+//         dataType: 'json',
+//         data: form,
+//         processData: false,
+//         contentType: false,
+//         success: function(result){},
+//         error: function(er){}
+// });
 
 loadIndex();

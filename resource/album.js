@@ -75,7 +75,6 @@ function create(req, res, db) {
             }
           });
 
-
   // multipart(req, res, function(req, res) {
   //   var album = req.body;
   //   var filename = album.image.filename.split("\\");
