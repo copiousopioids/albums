@@ -61,7 +61,7 @@ function list(projects){
     '<div class="col-sm-2">' +
       '<div class="thumbnail">' +
   //       '<a href="/w3images/lights.jpg">' +
-          '<img src="/images/blood.png" alt="blood" style="width:200px">' +
+          '<img src="/images/blood.png" alt="blood" style="width:200px" >' +
           '<div class="caption">' +
             '<p>' + project.name + '</p>' +
           '</div>' +
