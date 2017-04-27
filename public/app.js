@@ -64,8 +64,13 @@ function list(projects){
     var html =
     '<div class="col-sm-2">' +
       '<div class="thumbnail">' +
+<<<<<<< HEAD
   //       '<a href="/w3images/lights.jpg">' +
           '<img src="/images/blood.png" alt="blood" style="width:200px" >' +
+=======
+         '<a href="/w3images/lights.jpg">' +
+          '<img src="/images/blood.png" alt="blood" style="width:200px">' +
+>>>>>>> 153ed8a0d234519ffeff8e5000d87833c77f98b5
           '<div class="caption">' +
             '<p>' + project.name + '</p>' +
           '</div>' +
