@@ -28,6 +28,8 @@ function showLarge(project) {
   xhr.open('GET', url);
   xhr.send(null);
 
+  //TODO: Handle the returned list of song files
+
   $('#largeImg').attr('src', url);
   $('#itemName').html(project.name);
   $('#itemArtist').html(project.artist);
