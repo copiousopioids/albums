@@ -37,6 +37,10 @@ function showLarge(project) {
   $('#selectedItemPanel').css('visibility', 'visible');
 }
 
+function serveMusicFiles(albumID) {
+
+}
+
 function list(projects){
   var table = $('<table>').addClass('table');
   var head = $('<tr>').append('<th>Albums</th>').appendTo(table);
@@ -81,7 +85,27 @@ function list(projects){
     //   unselectAll();
     // }).appendTo(table);
 
-    $('<tr>').append(html).appendTo(table);
+    $('<tr>').append(html)
+      .click(function(event) {
+      event.preventDefault();
+      //alert("Load using Ajax");
+      console.log(project.name + " clicked");
+      // $header = $(this);
+      // //getting the next element
+      // $content = $header.next();
+      // //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+      // $content.slideToggle(500, function () {
+      //     //execute this after slideToggle is done
+      //     //change text of header based on visibility of content div
+      //     $header.text(function () {
+      //         //change text based on condition
+      //         return $content.is(":visible") ? "Collapse" : "Expand";
+      //     });
+      // });
+      showLarge(project);
+      //$('#largeImg').src = "/images/" + this.id;
+      unselectAll();
+    }).appendTo(table);
   });
   return table;
 }
