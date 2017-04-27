@@ -25,6 +25,7 @@ app.post('/', imageUpload.single('albumArt'), function(req, res){
 
     albumArt = req.file;
     resource.create(req, res, db);
+
     console.log(req.body); // form fields
     console.log(req.file); // form files
     res.status(204).end();
@@ -53,6 +54,8 @@ app.get('/', function (req, res) {
 app.get('/projects/', function (req, res) {
   resource.list(req, res, db);
 });
+
+app.get('')
 
 
 app.listen(port, function () {

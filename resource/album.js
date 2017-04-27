@@ -8,6 +8,7 @@
 
 
 "use strict";
+var multer = require('multer');
 
 /** @module album
  * A RESTful resource representing a software album
@@ -64,7 +65,7 @@ function create(req, res, db) {
   var album = req.body;
 
   db.run("INSERT INTO albums(name, artist, genre, filename) VALUES (?,?,?,?)",
-          [album.name, album.artist, album.genre, album.name],
+          [album.name, album.artist, album.genre, req.file.filename],
           function(err) {
             if(err) {
               console.error(err);
