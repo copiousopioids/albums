@@ -7,6 +7,7 @@ var app = express();
 var path = require('path');
 var resource = require('./resource/album.js');
 var migrations = require('./resource/migrate.js');
+var fs = require('fs');
 
 
 var sqlite3 = require('sqlite3').verbose();
@@ -23,8 +24,6 @@ app.post('/upload', imageUpload.single('albumArt'), function(req, res){
       return res.status(400).send('No files were uploaded.');
     }
 
-    req.file.filename = req.body.name;
-
     resource.create(req, res, db);
 
     // console.log(req.body); // form fields
@@ -32,6 +31,13 @@ app.post('/upload', imageUpload.single('albumArt'), function(req, res){
     res.statusCode = 204;
     res.end();
 });
+
+// 12 is max number of files
+app.post('/photos/upload', upload.array('photos', 12), function (req, res, next) {
+  // req.files is array of `photos` files
+  // req.body will contain the text fields, if there were any
+})
+
  
 // app.post('/', imageUpload.single('albumArt'), function(req, res) {
 //   if (!req.files)
