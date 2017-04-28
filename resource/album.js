@@ -65,7 +65,7 @@ function create(req, res, db) {
   var album = req.body;
 
   db.run("INSERT INTO albums(name, artist, genre, filename) VALUES (?,?,?,?)",
-          [album.name, album.artist, album.genre, req.file.filename],
+          [album.name, album.artist, album.genre, album.name],
           function(err) {
             if(err) {
               console.error(err);

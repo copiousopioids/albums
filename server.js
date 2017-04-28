@@ -23,11 +23,12 @@ app.post('/upload', imageUpload.single('albumArt'), function(req, res){
       return res.status(400).send('No files were uploaded.');
     }
 
-    albumArt = req.file;
+    req.file.filename = req.body.name;
+
     resource.create(req, res, db);
 
-    console.log(req.body); // form fields
-    console.log(req.file); // form files
+    // console.log(req.body); // form fields
+    // console.log(req.file); // form files
     res.statusCode = 204;
     res.end();
 });
