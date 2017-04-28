@@ -23,7 +23,8 @@ function loadIndex() {
 
 function showLarge(project) {
   console.log(project.filename);
-  var url = '/images/' + project.filename;
+  // var url = '/images/' + project.filename;
+  var url = '/images/blood.png';
   var xhr = new XMLHttpRequest();
   xhr.open('GET', url);
   xhr.send(null);
@@ -61,7 +62,17 @@ function list(projects){
 
 
 
-
+    var html =
+    '<div class="col-sm-2">' +
+      '<div class="thumbnail">' +
+         '<a href="/w3images/lights.jpg">' +
+          '<img src="/images/blood.png" alt="blood" style="width:200px">' +
+          '<div class="caption">' +
+            '<p>' + project.name + '</p>' +
+          '</div>' +
+        '</a>'
+      '</div>' +
+    '</div>';
 
 
 

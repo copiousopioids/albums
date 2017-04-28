@@ -11,6 +11,18 @@
   <title>Album Organizer</title>
 </head>
 <body>
+  <div id="selectedItemPanel" onclick="hideMe(this)">
+    <div class="media">
+      <div class="media-left">
+        <img id="largeImg" class="media-object"></img>
+      </div>
+      <div class="media-body">
+        <h5 id="itemName" class="mt-0"></h4>
+        <div id="itemArtist"></div>
+        <div id="itemGenre"></div>
+      </div>
+    </div>
+  </div>
   <div class="container">
     <div class="row" id="catalogItems"></div>
   </div>
