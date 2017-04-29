@@ -36,7 +36,7 @@ app.post('/upload', imageUpload.single('albumArt'), function(req, res){
 app.post('/photos/upload', upload.array('photos', 12), function (req, res, next) {
   // req.files is array of `photos` files
   // req.body will contain the text fields, if there were any
-})
+});
 
  
 // app.post('/', imageUpload.single('albumArt'), function(req, res) {
