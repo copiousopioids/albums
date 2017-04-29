@@ -29,7 +29,7 @@ app.post('/upload', imageUpload.single('albumArt'), function(req, res){
     // console.log(req.body); // form fields
     // console.log(req.file); // form files
     res.statusCode = 204;
-    res.end();
+    res.end('expect a file');
 });
 
 // 12 is max number of files
