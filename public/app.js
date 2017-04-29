@@ -24,7 +24,7 @@ function loadIndex() {
 function showLarge(project) {
   console.log(project.filename);
   // var url = '/images/' + project.filename;
-  var url = '/images/blood.png';
+  var url = '/images/' + project.filename;
   var xhr = new XMLHttpRequest();
   xhr.open('GET', url);
   xhr.send(null);
@@ -43,72 +43,46 @@ function serveMusicFiles(albumID) {
 }
 
 function list(projects){
-  var table = $('<table>').addClass('table');
-  var head = $('<tr>').append('<th>Albums</th>').appendTo(table);
+  // var table = $('<table>').addClass('table');
+  // var head = $('<tr>').append('<th>Albums</th>').appendTo(table);
+  var ul = $('<ul>').addClass('row');
   // var ul = $('<ul>');
   projects.forEach(function(project) {
-    // var html =
-    // '<div class="thumbnail">' +
-    // //       '<a href="/w3images/lights.jpg">' +
-    // '<img src="/images/blood.png" alt="blood" style="width:200px">' +
-    // '<div class="caption">' +
-    // '<p>' + project.name + '</p>' +
-    // '</div>' +
-    // //       '</a>' +
-    // '</div>' +
-    //
-    // $('<li>').addClass("col-lg-2 col-md-2 col-sm-3 col-xs-4").append(html).appendTo(ul);
-
-
-
-
+    // console.log(project);
     var html =
-    '<div class="col-sm-2">' +
-      '<div class="thumbnail">' +
-         '<a href="/w3images/lights.jpg">' +
-          '<img src="/images/blood.png" alt="blood" style="width:200px">' +
-          '<div class="caption">' +
-            '<p>' + project.name + '</p>' +
-          '</div>' +
-        '</a>'
-      '</div>' +
-    '</div>';
+    '<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">' +
+      '<div class="col-sm-2">' +
+        '<div class="thumbnail">' +
+            '<img class="img-responsive" src="/images/' + project.filename + '" alt="blood" >' +
+            '<div class="caption">' +
+              '<p>' + project.name + '</p>' +
+            '</div>' +
+        '</div>' +
+      '</div>' +
+    '</li>';
+//     var html =
+//     '<div class="col-sm-2">' +
+//       '<div class="thumbnail">' +
+//          '<a href="/w3images/lights.jpg">' +
+//           '<img src="/images/blood.png" alt="blood" style="width:200px">' +
+//           '<div class="caption">' +
+//             '<p>' + project.name + '</p>' +
+//           '</div>' +
+//         '</a>'
+//       '</div>' +
+//     '</div>';
 
-
-
-    // var row = $('<tr>')
-    // .append($('<td>').text(project.name))
-    // .click(function(event) {
-    //   event.preventDefault();
-    //   console.log(project.name + " clicked");
-    //   showLarge(project);
-    //   //$('#largeImg').src = "/images/" + this.id;
-    //   unselectAll();
-    // }).appendTo(table);
-
-    $('<tr>').append(html)
+    // $('<tr>').append(html)
+    ul.append(html)
       .click(function(event) {
       event.preventDefault();
       //alert("Load using Ajax");
       console.log(project.name + " clicked");
-      // $header = $(this);
-      // //getting the next element
-      // $content = $header.next();
-      // //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
-      // $content.slideToggle(500, function () {
-      //     //execute this after slideToggle is done
-      //     //change text of header based on visibility of content div
-      //     $header.text(function () {
-      //         //change text based on condition
-      //         return $content.is(":visible") ? "Collapse" : "Expand";
-      //     });
-      // });
       showLarge(project);
-      //$('#largeImg').src = "/images/" + this.id;
       unselectAll();
-    }).appendTo(table);
+    }).appendTo(ul);
   });
-  return table;
+  return ul;
 }
 
 function unselectAll() {

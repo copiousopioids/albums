@@ -39,8 +39,8 @@ app.post('/upload', imageUpload.single('albumArt'), function(req, res){
 
     resource.create(req, res, db);
 
-    console.log(req.body); // form fields
-    console.log(req.file); // form files
+    // console.log(req.body); // form fields
+    // console.log(req.file); // form files
     res.redirect("/");
 });
 
@@ -75,16 +75,16 @@ app.get('/projects/', function (req, res) {
   resource.list(req, res, db);
 });
 
-app.get('/images/:albumId', function(req, res) {
-  var albumId = req.params.albumId;
-  fs.readdir('../public/music/'+albumId, function(err, fileNames){
-    if(err) console.log(err);
-    else {
-      res.setHeader("Content-Type", "text/json");
-      res.end(fileNames);
-    }
-  });
-});
+// app.get('/images/:albumId', function(req, res) {
+//   var albumId = req.params.albumId;
+//   fs.readdir('../public/music/'+ albumId, function(err, fileNames){
+//     if(err) console.log(err);
+//     else {
+//       res.setHeader("Content-Type", "text/json");
+//       res.end(fileNames);
+//     }
+//   });
+// });
 
 
 app.listen(port, function () {

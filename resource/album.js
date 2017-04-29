@@ -63,9 +63,12 @@ function create(req, res, db) {
   // });
 
   var album = req.body;
+  console.log("mimetype: " + req.file.mimetype);
+
+  var fileType = '.' + req.file.mimetype.split('/')[1];
 
   db.run("INSERT INTO albums(name, artist, genre, filename) VALUES (?,?,?,?)",
-          [album.name, album.artist, album.genre, album.name],
+          [album.name, album.artist, album.genre, album.name + fileType],
           function(err) {
             if(err) {
               console.error(err);

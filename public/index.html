@@ -14,17 +14,18 @@
   <div id="selectedItemPanel" onclick="hideMe(this)">
     <div class="media">
       <div class="media-left">
-        <img id="largeImg" class="media-object"></img>
+        <img id="largeImg" class="media-object"/>
       </div>
       <div class="media-body">
-        <h5 id="itemName" class="mt-0"></h4>
+        <h5 id="itemName" class="mt-0"></h5>
         <div id="itemArtist"></div>
         <div id="itemGenre"></div>
       </div>
     </div>
   </div>
-  <div class="container">
-    <div class="row" id="catalogItems"></div>
+  <h1>Albums</h1>
+  <div id='catalogItems' class="container">
+
   </div>
   <div class="row">
     <div class="col-sm-offset-5 col-sm-2 text-center">
@@ -60,7 +61,7 @@
             <label for="songUploadInput">Music Files</label>
             <input id="songUploadInput" type='file' name="musicFile"/>
           </div> -->
-          <input id="submitItem" type="submit" class="btn btn-primary" value="Submit"></input>
+          <input id="submitItem" type="submit" class="btn btn-primary" value="Submit"/>
         </form>
       </div>
     </div>
@@ -70,9 +71,6 @@
   <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src="js/vendor/jquery.ui.widget.js"></script>
-  <script src="js/jquery.iframe-transport.js"></script>
-  <script src="js/jquery.fileupload.js"></script>
   <script src="/app.js" type="text/javascript"></script>
 </body>
 </html>
