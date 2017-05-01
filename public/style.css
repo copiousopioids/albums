@@ -1,7 +1,10 @@
-.example > div {
-  background-color: #888888;
-  padding: 10px;
-  border: 1px solid black;
+.imgWrapper {
+  overflow: hidden;
+  max-height: 99px;
+}
+
+body {
+  background-color: #EEFFFF;
 }
 
 ul {
@@ -39,18 +42,6 @@ ul li img {
     background-color: rgba(100,100,100, 0.8);
 }
 
-.container .content {
-    display: none;
-    padding : 5px;
-}
-
-.media {
-  position: absolute;
-  left: 50%;
-  top: 10%;
-
-}
-
 #largeImg {
   max-width: 150px;
 }
@@ -66,13 +57,11 @@ ul li img {
 }
 
 #editForm {
-  max-width: 450px;
+  max-width: 500px;
   background: #FAFAFA;
   padding: 30px;
   margin: 50px auto;
   box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
   border-radius: 10px;
   border: 6px solid #305A72;
-  position: absolute;
-  left: 50%;
 }

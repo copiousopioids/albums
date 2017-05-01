@@ -45,19 +45,15 @@ function serveMusicFiles(albumID) {
 function list(projects){
   // var table = $('<table>').addClass('table');
   // var head = $('<tr>').append('<th>Albums</th>').appendTo(table);
-  var ul = $('<ul>').addClass('row');
+  var ul = $('<ul>').addClass('row first');
   // var ul = $('<ul>');
   projects.forEach(function(project) {
     // console.log(project);
     var html =
-    '<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">' +
-      '<div class="col-sm-2">' +
-        '<div class="thumbnail">' +
-            '<img class="img-responsive" src="/images/' + project.filename + '" alt="blood" >' +
-            '<div class="caption">' +
-              '<p>' + project.name + '</p>' +
-            '</div>' +
-        '</div>' +
+    '<li class="col-lg-2 col-md-4 col-sm-3 col-xs-4 col-xxs-12 bspHasModal" style="list-style:none; margin-bottom:25px;">' +
+      '<div class="imgWrapper"><img class="img-responsive" src="/images/' + project.filename + '" alt="blood"/></div>' +
+      '<div class="caption">' +
+        '<p>' + project.name + '</p>' +
       '</div>' +
     '</li>';
 //     var html =
@@ -73,14 +69,14 @@ function list(projects){
 //     '</div>';
 
     // $('<tr>').append(html)
-    ul.append(html)
+    $(html)
       .click(function(event) {
-      event.preventDefault();
-      //alert("Load using Ajax");
-      console.log(project.name + " clicked");
-      showLarge(project);
-      unselectAll();
-    }).appendTo(ul);
+        event.preventDefault();
+        //alert("Load using Ajax");
+        console.log(project.name + " clicked");
+        showLarge(project);
+        unselectAll();
+      }).appendTo(ul);
   });
   return ul;
 }
