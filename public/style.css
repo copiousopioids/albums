@@ -53,7 +53,7 @@ ul li img {
 
 #selectedItemPanel {
     visibility: hidden;
-    position: absolute;
+    position: fixed;
     z-index: 100;
     top: 0; left: 0;
     width:100%;
