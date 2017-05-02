@@ -3,6 +3,23 @@
   max-height: 99px;
 }
 
+.media {
+  position: relative;
+  max-width: 600px;
+  background: #FAFAFA;
+  padding: 30px;
+  margin: 50px auto;
+  box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  border: 6px solid #305A72;
+}
+
+#musicFiles {
+  position: relative;
+}
+
+
+
 body {
   background-color: #EEFFFF;
 }
@@ -18,6 +35,8 @@ ul li {
 ul li img {
   cursor: pointer;
 }
+
+
 
 #message {
   position: fixed;

@@ -75,16 +75,22 @@ app.get('/projects/', function (req, res) {
   resource.list(req, res, db);
 });
 
-// app.get('/images/:albumId', function(req, res) {
-//   var albumId = req.params.albumId;
-//   fs.readdir('../public/music/'+ albumId, function(err, fileNames){
-//     if(err) console.log(err);
-//     else {
-//       res.setHeader("Content-Type", "text/json");
-//       res.end(fileNames);
-//     }
-//   });
-// });
+app.get('/music/:albumId', function(req, res) {
+  var albumId = req.params.albumId;
+  if (albumId) {
+    fs.readdir('./public/music/'+ albumId, function(err, fileNames){
+      if(err) console.log(err);
+      else {
+        res.setHeader("Content-Type", "text/json");
+        res.end(JSON.stringify(fileNames));
+      }
+    });
+  }
+  else {
+    console.log('no folder specified');
+    res.status(400).send("No directory");
+  }
+});
 
 
 app.listen(port, function () {

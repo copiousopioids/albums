@@ -33,13 +33,38 @@ function showLarge(project) {
 
   $('#largeImg').attr('src', url);
   $('#itemName').html(project.name);
-  $('#itemArtist').html(project.artist);
-  $('#itemGenre').html(project.genre);
+  $('#itemInfo').html(project.artist + ' - ' + project.genre);
   $('#selectedItemPanel').css('visibility', 'visible');
+  $('#musicFiles').html(serveMusicFiles(project.id));
 }
 
 function serveMusicFiles(albumID) {
+  var musicHTML = $('<ul>');
 
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '/music/' + albumID);
+  xhr.send(null);
+  xhr.onreadystatechange = function() {
+    var DONE = 4; // readyState 4 means the request is done.
+    var OK = 200; // status 200 is a successful return.
+    if (xhr.readyState === DONE) {
+      if (xhr.status === OK) {
+        console.log('Response:' + xhr.responseText); // 'This is the returned text.'
+        var musicFiles = JSON.parse(xhr.responseText);
+        musicFiles.forEach(function(song) {
+          if (song) {
+            var name = song.split('.')[0];
+            var html = '<h5>' + name + '</h5><li style="list-style:none"><audio controls><source src="/music/1/' + song + '" type="audio/mpeg"></audio></li>';
+            $(html).appendTo(musicHTML);
+          }
+        });
+
+      } else {
+        console.log('Error: ' + xhr.status); // An error occurred during the request.
+      }
+    }
+  }
+  return musicHTML;
 }
 
 function list(projects){
@@ -52,7 +77,7 @@ function list(projects){
     var html =
     '<li class="col-lg-2 col-md-4 col-sm-3 col-xs-4 col-xxs-12 bspHasModal" style="list-style:none; margin-bottom:25px;">' +
       '<div class="imgWrapper"><img class="img-responsive" src="/images/' + project.filename + '" alt="blood"/></div>' +
-      '<div class="caption">' +
+      '<div class="caption" style="background-color: white;">' +
         '<p>' + project.name + '</p>' +
       '</div>' +
     '</li>';
