@@ -65,18 +65,13 @@ ul li img {
   max-width: 150px;
 }
 
-#addItem {
-  position: absolute;
-  left: 50%;
-}
-
 #inputForm {
   display: inline-block;
   text-align: center;
 }
 
 #editForm {
-  max-width: 500px;
+  max-width: 600px;
   background: #FAFAFA;
   padding: 30px;
   margin: 50px auto;
