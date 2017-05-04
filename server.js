@@ -20,8 +20,16 @@ var imageStorage = multer.diskStorage({
     cb(null, req.body.name + '.' + fileType[1]);
   }
 });
+
+var musicStorage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    var fileType = file.mimetype.split('/');
+    cb(null, req.body.name + '.' + fileType[1]);
+  }
+});
+
 var imageUpload = multer({ dest: './public/images/', storage: imageStorage});
-//var songUpload = multer({dest: './public/music/', storage: musicStorage});
+var songUpload = multer({dest: './public/music/', storage: musicStorage});
 
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('albums.sqlite3', function(err) {
@@ -37,6 +45,7 @@ app.post('/upload', imageUpload.single('albumArt'), function(req, res){
       return res.status(400).send('No files were uploaded.');
     }
 
+    // Sends text fields to the database
     resource.create(req, res, db);
 
     // console.log(req.body); // form fields
@@ -59,6 +68,11 @@ var upload = multer({ storage: storage });
 
 app.post('/songUploads', upload.array('songFiles'), function(req, res){
   //TODO: resource.create and res.redirect("/") ???
+  if(!req.files) {
+    return res.status(400).send('No files were uploaded.');
+  }
+
+
   console.log(req.files[0].fileName);
   console.log("LSDfkldkfj");
 });
