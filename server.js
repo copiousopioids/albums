@@ -21,7 +21,7 @@ var imageStorage = multer.diskStorage({
   }
 });
 var imageUpload = multer({ dest: './public/images/', storage: imageStorage});
-
+//var songUpload = multer({dest: './public/music/', storage: musicStorage});
 
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('albums.sqlite3', function(err) {
@@ -42,6 +42,25 @@ app.post('/upload', imageUpload.single('albumArt'), function(req, res){
     // console.log(req.body); // form fields
     // console.log(req.file); // form files
     res.redirect("/");
+});
+
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    var parts = req.url.split();
+    var albumID = parts.pop();
+    cb(null, '/public/music/' + albumID)
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname)
+  }
+});
+
+var upload = multer({ storage: storage });
+
+app.post('/songUploads', upload.array('songFiles'), function(req, res){
+  //TODO: resource.create and res.redirect("/") ???
+  console.log(req.files[0].fileName);
+  console.log("LSDfkldkfj");
 });
 
 // 12 is max number of files

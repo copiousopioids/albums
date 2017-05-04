@@ -21,9 +21,24 @@
         <img id="largeImg" class="media-object"/>
       </div>
       <div class="media-body">
-        <h5 id="itemName" class="mt-0"></h5>
+        <h5 id="itemNa+63
+        3.me" class="mt-0"></h5>
         <div id="itemInfo" class="text-muted"></div>
         <div id="musicFiles" class="container"></div>
+        <form ref='uploadForm' id='uploadForm' action='http://localhost:3000/songUploads' method='post' encType="multipart/form-data">
+          <div class="form-group row">
+            <label class="custom-file"></label>
+            <div class="col-10">
+              <input name = "songFiles" id="file" class="custom-file-input" type="file" multiple>
+              <span class="custom-file-control"></span>
+            </div>
+          </div>
+          <!-- <div id="songUpload" class="form-group">
+            <label for="songUploadInput">Music Files</label>
+            <input id="songUploadInput" type='file' name="musicFile"/>
+          </div> -->
+          <input id="submitItem" type="submit" class="btn btn-primary" value="Submit"/>
+        </form>
       </div>
     </div>
   </div>

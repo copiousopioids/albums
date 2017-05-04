@@ -36,7 +36,9 @@ function showLarge(project) {
   $('#itemInfo').html(project.artist + ' - ' + project.genre);
   $('#selectedItemPanel').css('visibility', 'visible');
   $('#musicFiles').html(serveMusicFiles(project.id));
+  //$('#musicFiles').html(createForm(project.id));
 }
+
 
 function serveMusicFiles(albumID) {
   var musicHTML = $('<ul>');
