@@ -46,21 +46,20 @@ app.post('/upload', imageUpload.single('albumArt'), function(req, res){
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    var parts = req.url.split();
-    var albumID = parts.pop();
-    cb(null, '/public/music/' + albumID)
+    var dir = '../albums/public/music/' + req.params.albumID;
+    if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);
+    }
+    cb(null, dir) //fix this
   },
   filename: function (req, file, cb) {
-    cb(null, file.fieldname)
+    cb(null, file.originalname)
   }
 });
 
 var upload = multer({ storage: storage });
-
-app.post('/songUploads', upload.array('songFiles'), function(req, res){
+app.post('/songUploads/:albumID', upload.array("songs"), function(req, res){
   //TODO: resource.create and res.redirect("/") ???
-  console.log(req.files[0].fileName);
-  console.log("LSDfkldkfj");
 });
 
 // 12 is max number of files

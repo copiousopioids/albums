@@ -25,11 +25,11 @@
         3.me" class="mt-0"></h5>
         <div id="itemInfo" class="text-muted"></div>
         <div id="musicFiles" class="container"></div>
-        <form ref='uploadForm' id='uploadForm' action='http://localhost:3000/songUploads' method='post' encType="multipart/form-data">
+        <form ref='uploadForm' id='musicForm' method='post' encType="multipart/form-data">
           <div class="form-group row">
             <label class="custom-file"></label>
             <div class="col-10">
-              <input name = "songFiles" id="file" class="custom-file-input" type="file" multiple>
+              <input name = "songs" id="musicFile" class="custom-file-input" type="file" multiple>
               <span class="custom-file-control"></span>
             </div>
           </div>
