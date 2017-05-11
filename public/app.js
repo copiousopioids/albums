@@ -70,6 +70,8 @@ function serveMusicFiles(albumID) {
   return musicHTML;
 }
 
+
+
 function list(projects){
   // var table = $('<table>').addClass('table');
   // var head = $('<tr>').append('<th>Albums</th>').appendTo(table);
