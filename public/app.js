@@ -22,7 +22,7 @@ function loadIndex() {
 }
 
 function showLarge(project) {
-  console.log(project.filename);
+  console.log(project.id);
   // var url = '/images/' + project.filename;
   var url = '/images/' + project.filename;
   var xhr = new XMLHttpRequest();
@@ -57,7 +57,7 @@ function serveMusicFiles(albumID) {
         musicFiles.forEach(function(song) {
           if (song) {
             var name = song.split('.')[0];
-            var html = '<h5>' + name + '</h5><li style="list-style:none"><audio controls><source src="/music/1/' + song + '" type="audio/mpeg"></audio></li>';
+            var html = '<h5>' + name + '</h5><li style="list-style:none"><audio controls><source src="/music/'+ albumID+ '/' + song + '" type="audio/mpeg"></audio></li>';
             $(html).appendTo(musicHTML);
           }
         });
