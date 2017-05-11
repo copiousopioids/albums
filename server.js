@@ -76,6 +76,8 @@ app.post('/songUploads/:albumID', upload.array("songs"), function(req, res){
   if(!req.files) {
     return res.status(400).send('No files were uploaded.');
   }
+
+  res.redirect("/");
 });
 
 // 12 is max number of files
