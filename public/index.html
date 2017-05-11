@@ -15,7 +15,7 @@
   <title>Album Organizer</title>
 </head>
 <body>
-  <div id="selectedItemPanel" onclick="hideMe(this)">
+  <div id="selectedItemPanel">
     <div class="media">
       <div class="media-left">
         <img id="largeImg" class="media-object"/>
@@ -38,6 +38,7 @@
             <input id="songUploadInput" type='file' name="musicFile"/>
           </div> -->
           <input id="submitItem" type="submit" class="btn btn-primary" value="Submit"/>
+          <input id="close" class="btn btn-primary" value="Close" onclick="hideMe()"/>
         </form>
       </div>
     </div>

@@ -113,8 +113,9 @@ function unselectAll() {
     if(document.selection) document.selection.empty();
     if(window.getSelection) window.getSelection().removeAllRanges();
 }
-function hideMe(obj) {
-    obj.style.visibility = 'hidden';
+function hideMe() {
+    $('#selectedItemPanel').css('visibility', 'hidden');;
+    // obj.style.visibility = 'hidden';
 }
 
 var displayMessage = function(message, type){
